@@ -1,0 +1,1 @@
+# gp-om-smart-portal
