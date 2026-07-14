@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CM Report | GP O&M Smart Portal</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+}
+
+.header{
+    background:#00843D;
+    color:#fff;
+    padding:15px;
+    text-align:center;
+    font-size:24px;
+}
+
+.container{
+    width:75%;
+    margin:25px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+h2{
+    text-align:center;
+    color:#00843D;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#00843D;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#006b32;
+}
+
+.footer{
+    text-align:center;
+    padding:15px;
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+GP O&M SMART PORTAL
+</div>
+
+<div class="container">
+
+<h2>Corrective Maintenance (CM) Report</h2>
+
+<form onsubmit="submitCM();return false;">
+
+<label>Ticket ID</label>
+<input type="text" id="ticket" readonly>
+
+<label>Site Code</label>
+<input type="text" required>
+
+<label>Site Name</label>
+<input type="text">
+
+<label>Engineer Name</label>
+<input type="text" required>
+
+<label>Date</label>
+<input type="date" required>
+
+<label>Alarm Type</label>
+<select>
+
+<option>Site Down</option>
+<option>VSWR Alarm</option>
+<option>MRFU Fault</option>
+<option>RRU Fault</option>
+<option>Link Down</option>
+<option>RTN Fault</option>
+<option>Rectifier Fault</option>
+<option>Battery Alarm</option>
+<option>Power Failure</option>
+<option>DG Fault</option>
+<option>Transmission Fault</option>
+
+</select>
+
+<label>Root Cause</label>
+<textarea rows="3"></textarea>
+
+<label>Action Taken</label>
+<textarea rows="3"></textarea>
+
+<label>Spare Used</label>
+<input type="text">
+
+<label>Site Status</label>
+<select>
+
+<option>Recovered</option>
+<option>Pending</option>
+<option>Temporary Running</option>
+
+</select>
+
+<label>Recovery Time</label>
+<input type="datetime-local">
+
+<label>Before Repair Photo</label>
+<input type="file">
+
+<label>After Repair Photo</label>
+<input type="file">
+
+<label>Remarks</label>
+<textarea rows="3"></textarea>
+
+<button type="submit">
+Submit CM Report
+</button>
+
+</form>
+
+</div>
+
+<div class="footer">
+© 2026 GP O&M Smart Portal
+</div>
+
+<script>
+
+document.getElementById("ticket").value =
+"CM-"+Date.now();
+
+function submitCM(){
+
+alert("CM Report Submitted Successfully.");
+
+document.getElementById("ticket").value =
+"CM-"+Date.now();
+
+document.querySelector("form").reset();
+
+}
+
+</script>
+
+</body>
+</html>

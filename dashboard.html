@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | GP O&M Smart Portal</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+.header{
+width:100%;
+height:60px;
+background:#00843D;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px;
+position:fixed;
+top:0;
+}
+
+.sidebar{
+position:fixed;
+top:60px;
+left:0;
+width:230px;
+height:100%;
+background:#1f2937;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar ul li{
+border-bottom:1px solid #374151;
+}
+
+.sidebar ul li a{
+display:block;
+padding:15px;
+text-decoration:none;
+color:white;
+}
+
+.sidebar ul li a:hover{
+background:#00843D;
+}
+
+.main{
+margin-left:230px;
+margin-top:70px;
+padding:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.2);
+text-align:center;
+}
+
+.card h3{
+color:#555;
+margin-bottom:10px;
+}
+
+.card h1{
+font-size:40px;
+color:#00843D;
+}
+
+.search{
+margin-top:30px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.search input{
+padding:10px;
+width:300px;
+}
+
+.search button{
+padding:10px 20px;
+background:#00843D;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+}
+
+table th,table td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
+
+table th{
+background:#00843D;
+color:white;
+}
+
+.footer{
+margin-top:40px;
+text-align:center;
+color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h2>GP O&M Smart Portal</h2>
+
+<div>
+Admin
+</div>
+
+</div>
+
+<div class="sidebar">
+
+<ul>
+
+<li><a href="index.html">🏠 Home</a></li>
+
+<li><a href="dashboard.html">📊 Dashboard</a></li>
+
+<li><a href="site-database.html">📍 Site Database</a></li>
+
+<li><a href="pm.html">📝 PM Report</a></li>
+
+<li><a href="cm.html">🔧 CM Report</a></li>
+
+<li><a href="#">🚨 Alarm Tracker</a></li>
+
+<li><a href="#">📦 Spare Inventory</a></li>
+
+<li><a href="#">📄 Reports</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<h2>Dashboard</h2>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Sites</h3>
+<h1>320</h1>
+</div>
+
+<div class="card">
+<h3>Healthy Sites</h3>
+<h1>312</h1>
+</div>
+
+<div class="card">
+<h3>Down Sites</h3>
+<h1>8</h1>
+</div>
+
+<div class="card">
+<h3>Open Alarms</h3>
+<h1>15</h1>
+</div>
+
+<div class="card">
+<h3>Today's PM</h3>
+<h1>20</h1>
+</div>
+
+<div class="card">
+<h3>Today's CM</h3>
+<h1>6</h1>
+</div>
+
+</div>
+
+<div class="search">
+
+<h3>Site Search</h3>
+
+<br>
+
+<input type="text" id="siteCode" placeholder="Enter Site Code">
+
+<button onclick="searchSite()">Search</button>
+
+<div id="result"></div>
+
+</div>
+
+<h3 style="margin-top:40px;">Recent Activities</h3>
+
+<table>
+
+<tr>
+
+<th>Site</th>
+
+<th>Activity</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>LMSBR1</td>
+
+<td>PM Completed</td>
+
+<td>Completed</td>
+
+</tr>
+
+<tr>
+
+<td>LMGRD1</td>
+
+<td>CM Completed</td>
+
+<td>Recovered</td>
+
+</tr>
+
+<tr>
+
+<td>NPPCB1</td>
+
+<td>VSWR Alarm</td>
+
+<td>Pending</td>
+
+</tr>
+
+</table>
+
+<div class="footer">
+
+© 2026 GP O&M Smart Portal
+
+</div>
+
+</div>
+
+<script>
+
+function searchSite(){
+
+var site=document.getElementById("siteCode").value.toUpperCase();
+
+if(site=="LMSBR1"){
+
+document.getElementById("result").innerHTML="<br><b>Status:</b> Healthy<br><b>Power:</b> Commercial<br><b>Technology:</b> 2G/4G";
+
+}
+
+else if(site=="LMGRD1"){
+
+document.getElementById("result").innerHTML="<br><b>Status:</b> Down<br><b>Power:</b> DG Running<br><b>Technology:</b> 2G/3G/4G";
+
+}
+
+else{
+
+document.getElementById("result").innerHTML="<br><font color='red'>Site Not Found</font>";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

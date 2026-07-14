@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PM Report | GP O&M Smart Portal</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+.header{
+    background:#00843D;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-size:24px;
+}
+
+.container{
+    width:70%;
+    margin:20px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+h2{
+    color:#00843D;
+    text-align:center;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:12px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#00843D;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#006b32;
+}
+
+.footer{
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+GP O&M SMART PORTAL
+</div>
+
+<div class="container">
+
+<h2>Preventive Maintenance Report</h2>
+
+<form onsubmit="submitPM(); return false;">
+
+<label>PM ID</label>
+<input type="text" id="pmid" readonly>
+
+<label>Site Code</label>
+<input type="text" id="site" required>
+
+<label>Site Name</label>
+<input type="text">
+
+<label>Engineer Name</label>
+<input type="text" required>
+
+<label>Date</label>
+<input type="date" required>
+
+<label>Battery Voltage (V)</label>
+<input type="number" step="0.1">
+
+<label>Rectifier Status</label>
+<select>
+<option>Normal</option>
+<option>Fault</option>
+</select>
+
+<label>DG Status</label>
+<select>
+<option>Available</option>
+<option>Running</option>
+<option>Not Available</option>
+</select>
+
+<label>Commercial Power</label>
+<select>
+<option>Available</option>
+<option>Failure</option>
+</select>
+
+<label>VSWR Status</label>
+<select>
+<option>Normal</option>
+<option>Alarm</option>
+</select>
+
+<label>RRU Status</label>
+<select>
+<option>Normal</option>
+<option>Fault</option>
+</select>
+
+<label>Transmission Status</label>
+<select>
+<option>Normal</option>
+<option>Down</option>
+</select>
+
+<label>Battery Backup (Hours)</label>
+<input type="number">
+
+<label>Generator Fuel (%)</label>
+<input type="number">
+
+<label>Photo Upload</label>
+<input type="file">
+
+<label>Remarks</label>
+<textarea rows="4"></textarea>
+
+<button type="submit">Submit PM Report</button>
+
+</form>
+
+</div>
+
+<div class="footer">
+© 2026 GP O&M Smart Portal
+</div>
+
+<script>
+
+document.getElementById("pmid").value="PM-"+Date.now();
+
+function submitPM(){
+
+alert("PM Report Submitted Successfully.");
+
+document.getElementById("pmid").value="PM-"+Date.now();
+
+}
+
+</script>
+
+</body>
+</html>
